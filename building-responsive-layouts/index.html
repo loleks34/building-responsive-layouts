@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Preview Card | Gabrielle Essence</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@400;700&amp;family=Montserrat:wght@500;700&amp;display=swap');
+
+        :root {
+            --dark-green: #1A4032;
+            --cream: #F2EAE2;
+            --dark-gray: #6C7289;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', system-ui, sans-serif;
+            background-color: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .card {
+            max-width: 600px;
+            background-color: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .content {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category {
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--dark-gray);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .title {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            line-height: 1.1;
+            color: var(--dark-green);
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: var(--dark-gray);
+            font-size: 0.875rem;
+            margin-bottom: 24px;
+        }
+
+        .price-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .current-price {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-green);
+        }
+
+        .original-price {
+            font-size: 0.875rem;
+            color: var(--dark-gray);
+            text-decoration: line-through;
+        }
+
+        .add-to-cart {
+            background-color: var(--dark-green);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 16px 0;
+            font-size: 0.9rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: #0f2c22;
+        }
+
+        .add-to-cart svg {
+            width: 18px;
+            height: 18px;
+        }
+
+       @media (max-width: 640px) {
+            .card {
+                grid-template-columns: 1fr;
+                max-width: 340px;
+            }
+            
+            .content {
+                padding: 28px 24px;
+            }
+            
+            .title {
+                font-size: 1.75rem;
+            }
+        }
+
+       .add-to-cart:focus {
+            outline: 3px solid #8b9f8c;
+            outline-offset: 4px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="card">
+            <div class="image-container">
+                <img src="image-product-desktop.jpg" 
+                     alt="Gabrielle Essence Eau de Parfum by Chanel" 
+                     class="product-image">
+            </div>
+            
+            <div class="content">
+                <p class="category">Perfume</p>
+                
+                <h1 class="title">Gabrielle Essence Eau De Parfum</h1>
+                
+                <p class="description">
+                    A floral, solar and voluptuous interpretation composed by Olivier Polge, 
+                    Perfumer-Creator for the House of CHANEL.
+                </p>
+                
+                <div class="price-container">
+                    <span class="current-price">$149.99</span>
+                    <span class="original-price">$169.99</span>
+                </div>
+                
+                <button class="add-to-cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 22a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM18 22a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/>
+                        <path d="M3 3h2l.4 2M7 13h10l4-7H5.4M7 13l-2.5-7M7 13l-2 7"/>
+                    </svg>
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.querySelector('.add-to-cart').addEventListener('click', function() {
+            const btn = this;
+            const originalText = btn.innerHTML;
+            
+            btn.style.transition = 'all 0.2s';
+            btn.innerHTML = '✓ Added!';
+            btn.style.backgroundColor = '#1A4032';
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.backgroundColor = '';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+h1 {
+    font-weight: bold;
+}
+
+h2 {
+    font-weight: bold;
+    color:  hsl(158, 36%, 37%);
+}
+
+
+h3 {
+    font-weight: lighter;
+}
+
+h5 {
+    font-weight: 300;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    background:hsl(158, 42%, 18%);
+    color: white;
+    font-weight: bold;
+}
+
+body {
+    margin-top: 200px;
+    margin-bottom: 200px;
+    background-color: hsl(30, 38%, 92%);
+    margin-left: 600px;
+    margin-right: 600px;
+}
+
+img {
+    height: 400px;
+    width: 250px;
+}
